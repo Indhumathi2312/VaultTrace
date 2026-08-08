@@ -37,9 +37,9 @@ export default function Header() {
           </button>
           <button 
             type="button" 
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink lg:hidden" 
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink transition-colors hover:bg-bg1 lg:hidden" 
             aria-expanded={isMobileMenuOpen} 
-            aria-label="Open menu"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -57,15 +57,15 @@ export default function Header() {
       
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden mt-3 mx-auto max-w-[1200px] overflow-hidden rounded-[1.75rem] border border-border/70 bg-bg2/95 px-5 py-6 shadow-[0_8px_30px_rgba(11,31,26,0.08)] backdrop-blur-md">
-          <nav className="flex flex-col gap-4" aria-label="Mobile menu">
-            <Link href="#services" onClick={closeMenu} className="text-[16px] font-bold text-ink transition-colors hover:text-bg3">Services</Link>
-            <Link href="#how-we-work" onClick={closeMenu} className="text-[16px] font-bold text-ink transition-colors hover:text-bg3">How we work</Link>
-            <Link href="#pillars" onClick={closeMenu} className="text-[16px] font-bold text-ink transition-colors hover:text-bg3">Types of loss</Link>
-            <Link href="#resources" onClick={closeMenu} className="text-[16px] font-bold text-ink transition-colors hover:text-bg3">Resources</Link>
-            <Link href="#faqs" onClick={closeMenu} className="text-[16px] font-bold text-ink transition-colors hover:text-bg3">FAQ</Link>
+        <div className="lg:hidden mt-3 mx-auto max-w-[1200px] overflow-hidden rounded-[1.75rem] border border-border/70 bg-bg2/95 px-6 py-6 shadow-[0_8px_30px_rgba(11,31,26,0.08)] backdrop-blur-md animate-in fade-in slide-in-from-top-2 duration-200">
+          <nav className="flex flex-col gap-3.5" aria-label="Mobile menu">
+            <Link href="#services" onClick={closeMenu} className="text-[16px] font-bold text-ink transition-colors hover:text-bg3 py-1">Services</Link>
+            <Link href="#how-we-work" onClick={closeMenu} className="text-[16px] font-bold text-ink transition-colors hover:text-bg3 py-1">How we work</Link>
+            <Link href="#pillars" onClick={closeMenu} className="text-[16px] font-bold text-ink transition-colors hover:text-bg3 py-1">Types of loss</Link>
+            <Link href="#resources" onClick={closeMenu} className="text-[16px] font-bold text-ink transition-colors hover:text-bg3 py-1">Resources</Link>
+            <Link href="#faqs" onClick={closeMenu} className="text-[16px] font-bold text-ink transition-colors hover:text-bg3 py-1">FAQ</Link>
           </nav>
-          <div className="mt-6 border-t border-border pt-6 sm:hidden">
+          <div className="mt-5 border-t border-border pt-5 sm:hidden">
              <button type="button" onClick={() => { closeMenu(); openModal(); }} className="btn-shimmer flex w-full items-center justify-center gap-2 rounded-full bg-action-1 px-4 py-3 text-[14px] font-bold text-action-2 transition-opacity hover:opacity-90">
                 Free case review
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

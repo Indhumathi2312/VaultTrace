@@ -42,31 +42,37 @@ export default function Faqs() {
   };
 
   return (
-    <section id="faqs" className="scroll-mt-24 bg-bg2 px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-28">
-      <div className="mx-auto max-w-[900px]">
-        <div className="max-w-2xl">
-          <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-bg3">FAQ</p>
-          <h2 className="mt-5 text-[clamp(1.9rem,3.4vw,2.75rem)] font-bold leading-[1.12] tracking-[-0.03em] text-ink">
+    <section id="faqs" className="scroll-mt-24 bg-bg2 px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+      <div className="mx-auto max-w-[920px]">
+        <div className="text-center sm:text-left">
+          <span className="inline-block rounded-full bg-bg3/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.3em] text-bg3">
+            Frequently Asked Questions
+          </span>
+          <h2 className="mt-5 text-[clamp(2rem,3.4vw,2.85rem)] font-bold leading-[1.08] tracking-[-0.03em] text-ink">
             Clear answers before you share a case
           </h2>
         </div>
-        <div className="mt-10 border-t border-border sm:mt-12">
+        
+        <div className="mt-10 border-t border-border sm:mt-14">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div key={index} className="border-b border-border">
+              <div key={index} className="border-b border-border transition-colors">
                 <button
                   type="button"
                   aria-expanded={isOpen}
-                  onClick={() => toggleFaq(index)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left sm:py-6"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleFaq(index);
+                  }}
+                  className="flex w-full items-center justify-between gap-5 py-6 text-left outline-none hover:text-bg3 focus-visible:text-bg3 transition-colors group"
                 >
-                  <span className="text-[16px] font-bold leading-snug text-ink sm:text-[18px]">
+                  <span className="text-[17px] font-bold leading-snug text-ink sm:text-[19px] group-hover:text-bg3 transition-colors">
                     {faq.question}
                   </span>
                   <span
-                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-ink transition-colors ${
-                      isOpen ? "bg-bg3 text-white border-bg3" : ""
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-all duration-200 ${
+                      isOpen ? "bg-bg3 text-white border-bg3 rotate-180" : "border-border text-ink bg-bg1 group-hover:border-bg3/50"
                     }`}
                     aria-hidden="true"
                   >
@@ -90,7 +96,7 @@ export default function Faqs() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-5 text-[15px] leading-7 text-body sm:pb-6 sm:pr-16">
+                    <p className="pb-6 text-[15px] leading-7 text-body sm:pb-7 sm:pr-14 sm:text-[16px] sm:leading-8">
                       {faq.answer}
                     </p>
                   </div>
