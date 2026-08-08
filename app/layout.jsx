@@ -5,6 +5,11 @@ import CaseReviewModal from '@/components/CaseReviewModal';
 export const metadata = {
   title: "VaultTrace Recovery — Digital Asset Investigation & Analysis",
   description: "Expert blockchain forensics, evidence documentation, and transparent guidance for digital asset incidents. Request a free technical case review.",
+  icons: {
+    icon: '/images/favicon.png',
+    shortcut: '/images/favicon.png',
+    apple: '/images/favicon.png',
+  },
 };
 
 export default function RootLayout({ children }) {
