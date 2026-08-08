@@ -1,6 +1,9 @@
+"use client";
 import Link from 'next/link';
+import { useModal } from './ModalContext';
 
 export default function Pillars() {
+  const { openModal } = useModal();
   return (
     <section id="pillars" className="scroll-mt-24 bg-bg2 px-5 py-16 sm:px-8 sm:py-20 lg:px-12 lg:py-28">
       <div className="mx-auto max-w-[1340px]">
@@ -64,7 +67,7 @@ export default function Pillars() {
             <p className="text-[20px] font-bold tracking-tight text-white sm:text-[22px]">Unsure where your case fits?</p>
             <p className="mt-2 text-[15px] leading-6 text-white/75">Start with a free technical case review. We assess investigability before recommending next steps.</p>
           </div>
-          <button type="button" className="btn-shimmer inline-flex shrink-0 items-center rounded-full bg-white px-6 py-3.5 text-[14px] font-bold text-bg3 transition-opacity hover:opacity-90">
+          <button type="button" onClick={openModal} className="btn-shimmer inline-flex shrink-0 items-center rounded-full bg-white px-6 py-3.5 text-[14px] font-bold text-bg3 transition-opacity hover:opacity-90">
             Free case review
           </button>
         </div>

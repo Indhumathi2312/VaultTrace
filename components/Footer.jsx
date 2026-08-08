@@ -1,6 +1,9 @@
+"use client";
 import Link from 'next/link';
+import { useModal } from './ModalContext';
 
 export default function Footer() {
+  const { openModal } = useModal();
   return (
     <>
       <footer className="border-t border-border bg-bg2 pb-24 md:pb-0">
@@ -75,7 +78,7 @@ export default function Footer() {
             </svg>
             WhatsApp
           </a>
-          <button type="button" className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full px-4 text-[14px] font-bold transition-opacity hover:opacity-90 btn-shimmer bg-action-1 text-action-2">
+          <button type="button" onClick={openModal} className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-full px-4 text-[14px] font-bold transition-opacity hover:opacity-90 btn-shimmer bg-action-1 text-action-2">
             <span>Free case review</span>
           </button>
         </div>

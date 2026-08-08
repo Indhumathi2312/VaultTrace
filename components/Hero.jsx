@@ -1,23 +1,23 @@
+"use client";
 import Link from 'next/link';
+import { useModal } from './ModalContext';
 
 export default function Hero() {
+  const { openModal } = useModal();
   return (
     <section className="relative isolate min-h-[100svh] w-full overflow-hidden rounded-b-[1.75rem] sm:rounded-b-[2.25rem] lg:rounded-b-[2.75rem]">
       <img src="/images/hero-bg.jpg" alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover object-center" />
       <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/20 sm:via-white/75 sm:to-transparent" aria-hidden="true"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white/30" aria-hidden="true"></div>
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1400px] items-center px-5 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-32 lg:px-12 lg:pt-28">
-        <div className="max-w-[34rem] lg:max-w-[40rem]">
-          <p className="reveal inline-flex items-center gap-2 text-[13px] font-bold tracking-tight text-bg3 sm:text-[14px]">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M7 1.2 8.1 5.1 12 6.2 8.1 7.3 7 11.2 5.9 7.3 2 6.2l3.9-1.1L7 1.2Z" fill="currentColor"></path>
-            </svg>
-            Investigation & analysis
+      <div className="relative z-10 mx-auto flex h-full min-h-[100svh] max-w-[1340px] items-center px-5 pb-16 pt-32 sm:px-8 lg:px-12 lg:pt-40">
+        <div className="max-w-2xl">
+          <p className="reveal text-[12px] font-bold uppercase tracking-[0.22em] text-action-1">
+            <span className="mr-3 text-ink/40" aria-hidden="true">+</span>Investigation &amp; analysis
           </p>
           <h1 className="reveal reveal-delay-1 mt-5 text-[clamp(2.35rem,5vw,4.15rem)] font-bold leading-[1.02] tracking-[-0.04em] text-ink">VaultTrace Recovery</h1>
           <p className="reveal reveal-delay-2 mt-5 max-w-lg text-[17px] leading-7 text-body sm:text-[19px] sm:leading-8">When digital assets are lost or compromised, the first step is accurate documentation—not recovery promises.</p>
           <div className="reveal reveal-delay-3 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <button type="button" className="btn-shimmer inline-flex items-center justify-center gap-2 rounded-full bg-action-1 px-6 py-3.5 text-[15px] font-bold text-action-2 transition-opacity hover:opacity-90">
+            <button type="button" onClick={openModal} className="btn-shimmer inline-flex items-center justify-center gap-2 rounded-full bg-action-1 px-6 py-3.5 text-[15px] font-bold text-action-2 transition-opacity hover:opacity-90">
               Request Technical Case Review
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"></path>

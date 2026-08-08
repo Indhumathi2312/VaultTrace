@@ -1,9 +1,11 @@
 "use client";
 import { useState } from 'react';
 import Link from 'next/link';
+import { useModal } from './ModalContext';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { openModal } = useModal();
 
   const closeMenu = () => setIsMobileMenuOpen(false);
 
@@ -27,7 +29,7 @@ export default function Header() {
           <Link href="#faqs" className="rounded-full px-3 py-2 text-[14px] font-bold text-ink/75 transition-colors hover:bg-bg1 hover:text-ink">FAQ</Link>
         </nav>
         <div className="flex shrink-0 items-center gap-2">
-          <button type="button" className="btn-shimmer hidden items-center gap-2 rounded-full bg-action-1 px-4 py-2.5 text-[13px] font-bold text-action-2 transition-opacity hover:opacity-90 sm:inline-flex sm:text-[14px]">
+          <button type="button" onClick={openModal} className="btn-shimmer hidden items-center gap-2 rounded-full bg-action-1 px-4 py-2.5 text-[13px] font-bold text-action-2 transition-opacity hover:opacity-90 sm:inline-flex sm:text-[14px]">
             Free case review
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -64,7 +66,7 @@ export default function Header() {
             <Link href="#faqs" onClick={closeMenu} className="text-[16px] font-bold text-ink transition-colors hover:text-bg3">FAQ</Link>
           </nav>
           <div className="mt-6 border-t border-border pt-6 sm:hidden">
-             <button type="button" className="btn-shimmer flex w-full items-center justify-center gap-2 rounded-full bg-action-1 px-4 py-3 text-[14px] font-bold text-action-2 transition-opacity hover:opacity-90">
+             <button type="button" onClick={() => { closeMenu(); openModal(); }} className="btn-shimmer flex w-full items-center justify-center gap-2 rounded-full bg-action-1 px-4 py-3 text-[14px] font-bold text-action-2 transition-opacity hover:opacity-90">
                 Free case review
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"></path>
